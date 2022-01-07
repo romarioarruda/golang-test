@@ -1,9 +1,13 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"io"
+	"log"
 	"net/http"
 	"os"
+	"strings"
 )
 
 func main() {
@@ -13,16 +17,17 @@ func main() {
 		comando := lerComando()
 
 		switch comando {
-			case 1:
-				monitorar()
-			case 2:
-				exibeLogs()
-			case 0:
-				fmt.Println("Saindo do programa.")
-				os.Exit(0)
-			default:
-				fmt.Println("Comando não reconhecido.")
-				os.Exit(-1)
+		case 1:
+			fmt.Println("Monitorando...")
+			lerArquivosETestaSite()
+		case 2:
+			exibeLogs()
+		case 0:
+			fmt.Println("Saindo do programa.")
+			os.Exit(0)
+		default:
+			fmt.Println("Comando não reconhecido.")
+			os.Exit(-1)
 		}
 	}
 }
@@ -44,14 +49,32 @@ func lerComando() int {
 	return comando
 }
 
-func monitorar() {
-	fmt.Println("Informe uma url:")
+func lerArquivosETestaSite() {
+	arquivo, err := os.Open("sites.txt")
 
-	var url string
-	fmt.Scan(&url)
+	if err != nil {
+		log.Fatalln(err)
+	}
 
-	fmt.Println("Monitorando...")
+	ponteiro := bufio.NewReader(arquivo)
 
+	for {
+		linha, err := ponteiro.ReadString('\n')
+		linha = strings.TrimSpace(linha)
+
+		fmt.Println("Testando site:", linha)
+		testaSite(linha)
+		fmt.Println("")
+
+		if err == io.EOF {
+			break
+		}
+	}
+
+	arquivo.Close()
+}
+
+func testaSite(url string) {
 	resp, err := http.Get(url)
 
 	if err != nil {
