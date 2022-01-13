@@ -31,15 +31,26 @@ func (c *ContaCorrente) deposito(valor float64) string {
 	return "Valor insuficiente para depósito!"
 }
 
+func (contaSaida *ContaCorrente) transferencia(contaDestino *ContaCorrente, valor float64) string {
+	if valor <= contaSaida.saldo && valor > 0 {
+		contaSaida.sacar(valor)
+		contaDestino.deposito(valor)
+
+		return "Transferência realizada com sucesso!"
+	}
+
+	return "Saldo insuficiente ou o valor é 0!"
+}
+
 
 func main() {
-	conta := ContaCorrente{"Tati", 2040, 999666, 100}
-	conta.saldo = 500
+	contaTati := ContaCorrente{"Tati", 2040, 999666, 100}
+	contaRomario := ContaCorrente{"Romario", 123, 45678, 100}
 
-	fmt.Println(conta)
-	fmt.Println(conta.sacar((-400)))
-	fmt.Println(conta)
+	status := contaTati.transferencia(&contaRomario, 90)
 
-	fmt.Println(conta.deposito((10)))
-	fmt.Println(conta)
+	fmt.Println(contaTati)
+	fmt.Println(status)
+	fmt.Println(contaRomario)
+	
 }
