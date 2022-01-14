@@ -3,15 +3,13 @@ package main
 import (
 	"fmt"
 	"go-alura/oo/contas"
+	// "go-alura/oo/clientes"
 )
 
 func main() {
-	contaTati := contas.ContaCorrente{Titular: "Tati", Agencia: 2040, Conta: 999666, Saldo: 100}
-	contaRomario := contas.ContaCorrente{Titular: "Romário", Agencia: 123, Conta: 45678, Saldo: 50}
+	contaCliente := contas.ContaCorrente{}
 
-	status := contaTati.Transferencia(&contaRomario, 90)
+	contaCliente.Deposito(100)
 
-	fmt.Println(contaTati)
-	fmt.Println(status)
-	fmt.Println(contaRomario)
+	fmt.Println(contaCliente.Saldo())
 }

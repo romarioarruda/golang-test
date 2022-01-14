@@ -1,16 +1,24 @@
 package contas
 
+import (
+	"go-alura/oo/clientes"
+)
+
 type ContaCorrente struct {
-	Titular string
+	Titular clientes.Titular
 	Agencia int
 	Conta int
-	Saldo float64
+	saldo float64
+}
+
+func (c *ContaCorrente) Saldo() (string, float64) {
+	return "Seu saldo é de: R$", c.saldo
 }
 
 func (c *ContaCorrente) Sacar(valor float64) string {
-	podeSacar := valor > 0 && valor <= c.Saldo
+	podeSacar := valor > 0 && valor <= c.saldo
 	if podeSacar {
-		c.Saldo -= valor
+		c.saldo -= valor
 
 		return "Saque realizado com sucesso!"
 	}
@@ -21,7 +29,7 @@ func (c *ContaCorrente) Sacar(valor float64) string {
 func (c *ContaCorrente) Deposito(valor float64) string {
 	podeDepositar := valor > 0
 	if podeDepositar {
-		c.Saldo += valor
+		c.saldo += valor
 
 		return "Depósito realizado com sucesso!"
 	}
@@ -30,7 +38,7 @@ func (c *ContaCorrente) Deposito(valor float64) string {
 }
 
 func (contaSaida *ContaCorrente) Transferencia(contaDestino *ContaCorrente, valor float64) string {
-	if valor <= contaSaida.Saldo && valor > 0 {
+	if valor <= contaSaida.saldo && valor > 0 {
 		contaSaida.Sacar(valor)
 		contaDestino.Deposito(valor)
 
