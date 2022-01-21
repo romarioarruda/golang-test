@@ -1,0 +1,14 @@
+version: '3.1'
+
+services:
+  db_psql:
+    image: postgres:14
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: root
+
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
