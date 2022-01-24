@@ -7,7 +7,7 @@ import (
 )
 
 
-var temp = template.Must(template.ParseGlob("templates/*.html"))
+var temp = template.Must(template.ParseGlob("views/*.html"))
 
 func ListaTodosOsProdutos(resp http.ResponseWriter, req *http.Request) {
 	produtos := models.GetProdutos()
