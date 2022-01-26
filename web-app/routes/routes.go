@@ -6,6 +6,10 @@ import (
 )
 
 
-func CarregaRotas() {
+func CarregaRotasView() {
 	http.HandleFunc("/", controllers.ListaTodosOsProdutos)
+}
+
+func CarregaRotasController() {
+	http.HandleFunc("/insert", controllers.CriaNovoProduto)
 }
