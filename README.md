@@ -1,13 +1,12 @@
-# golang-alura
-Curso de golang na Alura
+# golang-test
+Learning Golang...
 
+### Usefull Links
 
-### Links úteis
+[GO Documentation](https://go.dev/)
 
-[Documentação do GO](https://go.dev/)
+[GO Format Date](https://go.dev/src/time/format.go)
 
-[Formatando datas no GO](https://go.dev/src/time/format.go)
+[GO File System](https://pkg.go.dev/os#File)
 
-[File System no GO](https://pkg.go.dev/os#File)
-
-[Requests HTTP no GO](https://pkg.go.dev/net/http)
+[GO HTTP Requests](https://pkg.go.dev/net/http)
