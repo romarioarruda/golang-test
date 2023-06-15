@@ -1,10 +1,10 @@
 # golang-test
 Learning Golang...
 
-### Executando um arquivo Go
+### Performing a Go script
 
 ```
-$ go run fileName.go
+$ go run script.go
 ```
 
 ### Usefull Links
