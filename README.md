@@ -1,6 +1,12 @@
 # golang-test
 Learning Golang...
 
+### Executando um arquivo Go
+
+```
+$ go run fileName.go
+```
+
 ### Usefull Links
 
 [GO Documentation](https://go.dev/)
