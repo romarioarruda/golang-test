@@ -1,2 +1,4 @@
 08/01/2022 08:18:55 - https://cursos.alura.com.br/course/golang/task/28031 - status=200 OK
 08/01/2022 08:18:55 - https://mcladvogadas.netlify.appd - status=500 Get "https://mcladvogadas.netlify.appd": dial tcp: lookup mcladvogadas.netlify.appd: no such host
+25/06/2023 13:30:11 - https://cursos.alura.com.br/course/golang/task/28031 - status=200 OK
+25/06/2023 13:30:12 - https://mcladvogadas.netlify.app - status=200 OK

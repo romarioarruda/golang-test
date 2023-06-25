@@ -19,17 +19,17 @@ func main() {
 		comando := lerComando()
 
 		switch comando {
-		case 1:
-			fmt.Println("Monitorando...")
-			lerArquivosETestaSite()
-		case 2:
-			exibeLogs()
-		case 0:
-			fmt.Println("Saindo do programa.")
-			os.Exit(0)
-		default:
-			fmt.Println("Comando não reconhecido.")
-			os.Exit(-1)
+			case 1:
+				fmt.Println("Monitorando...")
+				lerArquivosETestaSite()
+			case 2:
+				exibeLogs()
+			case 0:
+				fmt.Println("Saindo do programa.")
+				os.Exit(0)
+			default:
+				fmt.Println("Comando não reconhecido.")
+				os.Exit(-1)
 		}
 	}
 }
