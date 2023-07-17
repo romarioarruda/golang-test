@@ -1,6 +1,14 @@
 # golang-test
 Learning Golang...
 
+##
+
+### Install dependencies
+
+```
+$ go mod tidy
+```
+
 ### Performing a Go script
 
 ```
